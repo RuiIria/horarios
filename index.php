@@ -1,5 +1,8 @@
 <html>
+	<head>
+		<Title> Plataforma de Horários</title>
+	</head>
 	<body>
-		bla bla
+		<?php include_once('modLogin.php'); ?>
 	</body>
 </html>

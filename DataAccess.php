@@ -36,9 +36,10 @@ class DataAccess{
         mysqli_close($this->connection);
     }
 	
+	
 	function inserirUtilizador($nome, $email, $pwd){
-		$query = "insert into users(nome, email, senha) 
-										values('$nome', '$email','$pwd')";
+		$query = "insert into utilizador(Nome, email, senha) 
+										values('$nome', '$Email','$pwd')";
 		$this->connect();
         $this->execute($query);
         $this->disconnect();
@@ -46,7 +47,7 @@ class DataAccess{
 	
 	function login($email, $password){
 				
-		$query = "SELECT * FROM users WHERE email='" . $email . "' AND `senha` = '$password'";
+		$query = "SELECT * FROM utilizador WHERE email='" . $Email . "' AND `senha` = '$password'";
 		
 	 	$this->connect();
 		$res = $this->execute($query);
@@ -54,25 +55,8 @@ class DataAccess{
 		return $res;
 	}
     
-    function getUsers(){
-        $query = "select U.*, T.tipo from users U inner join TiposDeUtilizadores T where U.idTipoUtilizador = T.id";
-		$this->connect();
-        $res = $this->execute($query);
-		$this->disconnect();
-		return $res;
-    }
-	
-	function searchUsers($x){
-        $query = "select U.*, T.tipo from users U inner join TiposDeUtilizadores T where U.idTipoUtilizador = T.id and 
-					(U.nome like '%$x%' or U.email like '%$x%' or T.tipo like '%$x%')";
-		$this->connect();
-        $res = $this->execute($query);
-		$this->disconnect();
-		return $res;
-    }
-	
 	function getUser($id){
-        $query = "select * from users where id = $id";
+        $query = "select * from utilizador where id = $id";
 		$this->connect();
         $res = $this->execute($query);
 		$this->disconnect();
@@ -80,21 +64,21 @@ class DataAccess{
     }
 	
 	function deleteUser($id){
-		$query = "delete from users where id = $id";
+		$query = "delete from utilizador where id = $id";
 		$this->connect();
 		$this->execute($query);
 		$this->disconnect();
 	}
 	
-	function editarUsers($id, $novoNome, $novaPwd){
-		$query = "update users set nome='$novoNome',password='$novaPwd' where id = '$id'";
+	function editarutilizador($id, $novoNome, $novaPwd){
+		$query = "update utilizador set Nome='$novoNome',password='$novaPwd' where id = '$id'";
 		$this->connect();
 		$this->execute($query);
 		$this->disconnect();
 	}
 	
-	function EmailJaExiste( $email ){
-		$query = "select Email from users where Email ='$email'";
+	function EmailJaExiste( $Email ){
+		$query = "select email from utilizador where email ='$Email'";
 		$this->connect();
 		$res = $this->execute($query);
 		$this->disconnect();
@@ -103,18 +87,16 @@ class DataAccess{
 				
 	}
 	
-	function editarUsersNome($id, $novoNome){
-		$query = "update users set nome='$novoNome' where id = '$id'";
+	function editarutilizadorNome($id, $novoNome){
+		$query = "update utilizador set Nome='$novoNome' where id = '$id'";
 		$this->connect();
 		$this->execute($query);
 		$this->disconnect();
 	}
 	
-	function editarUsersPwd($id, $novaPwd){
-		$query = "update users set password='$novaPwd' where id = '$id'";
+	function editarutilizadorPwd($id, $novaPwd){
+		$query = "update utilizador set senha='$novaPwd' where id = '$id'";
 		$this->connect();
 		$this->execute($query);
 		$this->disconnect();
 	}
-}
-?>

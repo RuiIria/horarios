@@ -13,8 +13,8 @@
 			$row = mysqli_fetch_object($res);
 			session_start();			
 			$_SESSION['idUser'] = $row->id;
-			$_SESSION['nomeUser'] = $row->nome;
-			$_SESSION['emailUser'] = $row->Email;
+			$_SESSION['nomeUser'] = $row->Nome;
+			$_SESSION['emailUser'] = $row->email;
 			echo "<script>alert('Login efetuado com sucesso'); window.location='inicio.php'</script>";
 		}else{
 			echo "erro no login";

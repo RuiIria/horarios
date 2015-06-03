@@ -12,9 +12,10 @@
         <script src="foundation/js/vendor/modernizr.js"></script>
 	</head>
 	<body>
-		<?php
-			include_once('modLogin.php');
-			include_once('modReg.php');
-		?>
+            <?php
+                include_once('modLogin.php');
+                include_once('modReg.php');
+            ?>
 	</body>
+	<?php include_once('scripts.php'); ?>
 </html>

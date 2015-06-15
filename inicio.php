@@ -6,13 +6,14 @@
 <html>
 	<head>
 		<title>Início</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="foundation/css/foundation.css" />
+        <script src="foundation/js/vendor/modernizr.js"></script>
 	</head>
 	<body>
 	<?php include_once('Topbar.php'); ?>
-	<div class='row'>
-		<div id="corpo" class="large-8 large-centered panel columns">
-
-		</div>
-	</div>
+	<center><h1>Não foi encontrado nenhum horário para selecionar</h1></center>
 	</body>
 </html>
+	<?php include_once('scripts.php'); ?>

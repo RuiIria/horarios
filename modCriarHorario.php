@@ -1,30 +1,72 @@
-﻿<meta charset="utf-8" />
+﻿<script>
+	function ValidarTurma()
+	{
+		var reg = /^[A-Za-z0-9_ ]*$/;
+		if(reg.test(document.getElementById("turma").value)== true)
+		{
+			document.getElementById('divTurmaErrada').style.display='none'; 
+			document.getElementById('divTurmaCorreta').style.display='block'; //Mostra email correto
+			return true;
+		}
+		else
+		{
+			document.getElementById('divTurmaErrada').style.display='block';//mostra email errado
+			document.getElementById('divTurmaCorreta').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarFormH()
+	{
+		if (ValidarTurma() == false)
+			return false
+	}
+	
+</script>
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="foundation/css/foundation.css" />
 <script src="foundation/js/vendor/modernizr.js"></script>
 <?php include_once('Topbar.php'); ?>
 
-<div class='row' style='position:relative; top:15%; display:block;' id="Login">
+<div class='row' style='position:relative; top:15%; display:block;' id="CriarHorario">
 	<div class='large-12 large-centered panel columns'>
 		<form method='post' action="criarHorario.php" onsubmit="return ValidarDadosHorario();" >
 			<fieldset>
 				<legend><b>CRIAR HORÁRIO</b></legend>
-				<div class="large-12 columns">
+				<div class="large-8 columns">
 					<label>
-						Turma:<input type='text' onkeyup='ValidarTurma()' onchange='ValidarTurma()' name='turma' id='turma' required/>
+						<input type='text' placeholder="Turma" onkeyup='ValidarTurma()' onchange='ValidarTurma()' name='turma' id='turma' required/>
+					</label>
+				</div>
+				<div id="divTurmaErrada" style='display:none; position: absolute; left: 31px; top: 88px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Nome inválido">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divTurmaCorreta" style='display:none; position: absolute; left: 31px; top: 88px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
+				</div>
+				<div class="large-4 columns">
+					<label>
+						<select required name="curso">
+							<option disabled selected>Curso</option>
+							<option value="gpsi">G.P.S.I.</option>
+							<option value="asc">A.S.C.</option>
+							<option value="hsta">H.S.T.A.</option>
+						</select>
+					</label>
+				</div>
+				<div class="large-2 columns">
+					<label>
+						<h3>Aula 1</h3>
 					</label>
 				</div>
 				
 				<div class="large-2 columns">
 					<label>
-						<h2>Aula 1</h2>
-					</label>
-				</div>
-				
-				<div class="large-2 columns">
-					<label>
-						Tempo:
-						<select>
+						<select required name="hora">
+							<option disabled selected>Hora</option>
 							<option value="tempo1">8:15-9:15</option>
 							<option value="tempo2">9:30-10:30</option>
 							<option value="tempo3">10:40-11:40</option>
@@ -39,8 +81,8 @@
 				
 				<div class="large-2 columns">
 					<label>
-						Dia da Semana:
-						<select>
+						<select required name="diasemana">
+							<option disabled selected>Dia da Semana</option>
 							<option value="2Feira">2ª Feira</option>
 							<option value="3Feira">3ª Feira</option>
 							<option value="4Feira">4ª Feira</option>
@@ -52,8 +94,8 @@
 				
 				<div class="large-2 columns">
 					<label>
-						Sala:
-						<select>
+						<select required name="sala">
+							<option disabled selected>Sala</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -71,8 +113,8 @@
 				
 				<div class="large-2 columns">
 					<label>
-						Disciplina:
-						<select>
+						<select required name="disciplina">
+							<option disabled selected>Disciplina</option>
 							<option value="mat">MAT.</option>
 							<option value="psi">P.S.I.</option>
 							<option value="fq">F.Q.</option>
@@ -91,8 +133,8 @@
 				
 				<div class="large-2 columns">
 					<label>
-						Professor:
-						<select>
+						<select required name="stor">
+							<option disabled selected>Professor</option>
 							<option value="stor1">stor1</option>
 							<option value="stor2">stor2</option>
 							<option value="stor3">stor3</option>
@@ -107,8 +149,14 @@
 						</select>
 					</label>
 				</div>
+				<div class="large-1 columns">
+					&nbsp
+				</div>
+				<div class="large-11 columns">
+					&nbsp
+				</div>
 				<div>
-					
+					<input type='submit' class='small button' value='SUBMETER HORÁRIO' />
 				</div>
 			</fieldset>
 		</form>

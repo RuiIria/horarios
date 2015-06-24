@@ -2,7 +2,6 @@
 	<nav class="top-bar" data-topbar role="navigation">
 		<section class="top-bar-section">
 			<ul class="right">
-				<li><a href="definicoesconta.php">Definições da conta</a></li>
 				<li><a href='logout.php'>Sair</a></li>
 			</ul>
 			

@@ -13,7 +13,7 @@
 	</head>
 	<body>
 	<?php include_once('Topbar.php'); ?>
-	<center><h1>Não foi encontrado nenhum horário para selecionar</h1></center>
+	<center><h1>Página Inicial</h1></center>
 	</body>
 </html>
 	<?php include_once('scripts.php'); ?>

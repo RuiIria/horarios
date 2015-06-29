@@ -1,28 +1,172 @@
 ﻿<script>
-	function ValidarTurma()
+	function ValidarNAI()
 	{
-		var reg = /^[A-Za-z0-9_ ]*$/;
-		if(reg.test(document.getElementById("turma").value)== true)
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("AI").value)== true)
 		{
-			document.getElementById('divTurmaErrada').style.display='none'; 
-			document.getElementById('divTurmaCorreta').style.display='block'; //Mostra email correto
+			document.getElementById('divNoNAI').style.display='none'; 
+			document.getElementById('divYesNAI').style.display='block';
 			return true;
 		}
 		else
 		{
-			document.getElementById('divTurmaErrada').style.display='block';//mostra email errado
-			document.getElementById('divTurmaCorreta').style.display='none';
+			document.getElementById('divNoNAI').style.display='block';
+			document.getElementById('divYesNAI').style.display='none';
 			return false;
 		}
 	}
 	
-	function ValidarFormH()
+	function ValidarNFQ()
 	{
-		if (ValidarTurma() == false)
-			return false
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("FQ").value)== true)
+		{
+			document.getElementById('divNoNFQ').style.display='none'; 
+			document.getElementById('divYesNFQ').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNFQ').style.display='block';
+			document.getElementById('divYesNFQ').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNFran()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("Fran").value)== true)
+		{
+			document.getElementById('divNoNFran').style.display='none'; 
+			document.getElementById('divYesNFran').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNFran').style.display='block';
+			document.getElementById('divYesNFran').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNFranIng()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("FranIng").value)== true)
+		{
+			document.getElementById('divNoNFranIng').style.display='none'; 
+			document.getElementById('divYesNFranIng').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNFranIng').style.display='block';
+			document.getElementById('divYesNFranIng').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNIng()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("Ing").value)== true)
+		{
+			document.getElementById('divNoNIng').style.display='none'; 
+			document.getElementById('divYesNIng').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNIng').style.display='block';
+			document.getElementById('divYesNIng').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNMat()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("Mat").value)== true)
+		{
+			document.getElementById('divNoNMat').style.display='none'; 
+			document.getElementById('divYesNMat').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNMat').style.display='block';
+			document.getElementById('divYesNMat').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNPort()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("Port").value)== true)
+		{
+			document.getElementById('divNoNPort').style.display='none'; 
+			document.getElementById('divYesNPort').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNPort').style.display='block';
+			document.getElementById('divYesNPort').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNPSI()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("PSI").value)== true)
+		{
+			document.getElementById('divNoNPSI').style.display='none'; 
+			document.getElementById('divYesNPSI').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNPSI').style.display='block';
+			document.getElementById('divYesNPSI').style.display='none';
+			return false;
+		}
+	}
+	
+	function ValidarNRC()
+	{
+		var reg = /^[z0-9_ ]*$/;
+		if(reg.test(document.getElementById("RC").value)== true)
+		{
+			document.getElementById('divNoNRC').style.display='none'; 
+			document.getElementById('divYesNRC').style.display='block';
+			return true;
+		}
+		else
+		{
+			document.getElementById('divNoNRC').style.display='block';
+			document.getElementById('divYesNRC').style.display='none';
+			return false;
+		}
+	}
+	
+	function LimiteHoras()
+	{
+		int ttl = RC + PSI + Port + Mat + Ing + FranIng + Fran + FQ + AI;
+		if(ttl > 48)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	
 </script>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="foundation/css/foundation.css" />
@@ -33,130 +177,131 @@
 	<div class='large-12 large-centered panel columns'>
 		<form method='post' action="criarHorario.php" onsubmit="return ValidarDadosHorario();" >
 			<fieldset>
-				<legend><b>CRIAR HORÁRIO</b></legend>
-				<div class="large-8 columns">
-					<label>
-						<input type='text' placeholder="Turma" onkeyup='ValidarTurma()' onchange='ValidarTurma()' name='turma' id='turma' required/>
-					</label>
+				<legend><H3>CRIAR HORÁRIO</H3></legend>
+				<div class="large-12 columns">
+					<h4>CURSO: GESTÃO E PROGRAMAÇÃO DE SISTEMAS DE INFORMAÇÃO</h4>
 				</div>
-				<div id="divTurmaErrada" style='display:none; position: absolute; left: 31px; top: 88px;'>
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Nome inválido">
+				
+				<div class="large-3 columns">
+					ÁREA DE INTEGRAÇÃO:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNAI()' onchange='ValidarNAI()' name="AI" id="AI" required />
+				</div>
+				
+				<div id="divNoNAI" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
 						<img src="./img/errado.png" height="20px" width="20px">
 					</span>
 				</div>
-				<div id="divTurmaCorreta" style='display:none; position: absolute; left: 31px; top: 88px;'>
+				<div id="divYesNAI" style='display:none; position: absolute; left: 230px; top: 164px;'>
 					<img src="./img/correto.png" height="20px" width="20px">
 				</div>
+			
+				<div class="large-3 columns">
+					FISICA E QUIMICA:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNFQ()' onchange='ValidarNFQ()' name="FQ" id="FQ" required />
+				</div>
+				
+				<div id="divNoNFQ" style='display:none; position: absolute; left: 459px; top: 164px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNFQ" style='display:none; position: absolute; left: 459px; top: 164px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
+				</div>
+				
+				<div class="large-6 columns">
+					LÍNGUA ESTRANGEIRA - FRANCÊS:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNFran()' onchange='ValidarNFran()' name="Fran" id="Fran" required />
+				</div>
+				
+				<div id="divNoNFran" style='display:none; position: absolute; right: 65px; top: 164px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNFran" style='display:none; position: absolute; right: 65px; top: 164px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
+				</div>
+				
+				<div class="large-8 columns">
+					LÍNGUA ESTRANGEIRA - FRANCÊS, LÍNGUA ESTRANGEIRA - INGLÊS:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNFranIng()' onchange='ValidarNFranIng()' name="FranIng" id="FranIng" required />
+				</div>
+				
+				<div id="divNoNFranIng" style='display:none; position: absolute; right: 250px; top: 243px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNFranIng" style='display:none; position: absolute; right: 250px; top: 243px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
+				</div>
+				
 				<div class="large-4 columns">
-					<label>
-						<select required name="curso">
-							<option disabled selected>Curso</option>
-							<option value="gpsi">G.P.S.I.</option>
-							<option value="asc">A.S.C.</option>
-							<option value="hsta">H.S.T.A.</option>
-						</select>
-					</label>
+					LÍNGUA ESTRANGEIRA -INGLÊS:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNIng()' onchange='ValidarNIng()' name="Ing" id="Ing" required />
 				</div>
-				<div class="large-2 columns">
-					<label>
-						<h3>Aula 1</h3>
-					</label>
+				
+				<div id="divNoNIng" style='display:none; position: absolute; right: 65px; top: 243px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNIng" style='display:none; position: absolute; right: 65px; top: 243px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
 				</div>
 				
 				<div class="large-2 columns">
-					<label>
-						<select required name="hora">
-							<option disabled selected>Hora</option>
-							<option value="tempo1">8:15-9:15</option>
-							<option value="tempo2">9:30-10:30</option>
-							<option value="tempo3">10:40-11:40</option>
-							<option value="tempo4">11:50-12:50</option>
-							<option value="tempo5">14:20-15:20</option>
-							<option value="tempo6">15:30-16:30</option>
-							<option value="tempo7">16:40-17:40</option>
-							<option value="tempo8">17:50-18:50</option>
-						</select>
-					</label>
+					MATEMÁTICA:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNMat()' onchange='ValidarNMat()' name="Mat" id="Mat" required />
+				</div>
+				
+				<div id="divNoNMat" style='display:none; position: absolute; left: 230px; top: 322px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNMat" style='display:none; position: absolute; left: 230px; top: 322px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
 				</div>
 				
 				<div class="large-2 columns">
-					<label>
-						<select required name="diasemana">
-							<option disabled selected>Dia da Semana</option>
-							<option value="2Feira">2ª Feira</option>
-							<option value="3Feira">3ª Feira</option>
-							<option value="4Feira">4ª Feira</option>
-							<option value="5Feira">5ª Feira</option>
-							<option value="6Feira">6ª Feira</option>
-						</select>
-					</label>
+					PORTUGUÊS:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNPort()' onchange='ValidarNPort()' name="Port" id="Port" required />
+				</div>
+				
+				<div id="divNoNPort" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNPort" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
+				</div>
+				
+				<div class="large-6 columns">
+					PROGRAMAÇÃO E SISTEMAS DE INFORMAÇÃO:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNPSI()' onchange='ValidarNPSI()' name="PSI" id="PSI" required />
+				</div>
+				
+				<div id="divNoNPSI" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNPSI" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
+				</div>
+				
+				<div class="large-4 columns">
+					REDES DE COMUNIÇACÃO:<input placeholder="Insira o tempo letivo" type="text" onkeyup='ValidarNRC()' onchange='ValidarNRC()' name="RC" id="RC" required />
+				</div>
+				
+				<div id="divNoNRC" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="Insira um numero">
+						<img src="./img/errado.png" height="20px" width="20px">
+					</span>
+				</div>
+				<div id="divYesNRC" style='display:none; position: absolute; left: 230px; top: 164px;'>
+					<img src="./img/correto.png" height="20px" width="20px">
 				</div>
 				
 				<div class="large-2 columns">
-					<label>
-						<select required name="sala">
-							<option disabled selected>Sala</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="aud">AUD</option>
-						</select>
-					</label>
-				</div>
-				
-				<div class="large-2 columns">
-					<label>
-						<select required name="disciplina">
-							<option disabled selected>Disciplina</option>
-							<option value="mat">MAT.</option>
-							<option value="psi">P.S.I.</option>
-							<option value="fq">F.Q.</option>
-							<option value="ac">A.C.</option>
-							<option value="ef">E.F.</option>
-							<option value="ai">A.I.</option>
-							<option value="fran">Fran.</option>
-							<option value="ing">Ing.</option>
-							<option value="port">Port.</option>
-							<option value="rc">R.C.</option>
-							<option value="cc">C.C.</option>
-							<option value="oet">OET</option>
-						</select>
-					</label>
-				</div>
-				
-				<div class="large-2 columns">
-					<label>
-						<select required name="stor">
-							<option disabled selected>Professor</option>
-							<option value="stor1">stor1</option>
-							<option value="stor2">stor2</option>
-							<option value="stor3">stor3</option>
-							<option value="stor4">stor4</option>
-							<option value="stor5">stor5</option>
-							<option value="stor6">stor6</option>
-							<option value="stor7">stor7</option>
-							<option value="stor8">stor8</option>
-							<option value="stor9">stor9</option>
-							<option value="stor10">stor10</option>
-							<option value="stor11">stor11</option>
-						</select>
-					</label>
-				</div>
-				<div class="large-1 columns">
 					&nbsp
-				</div>
-				<div class="large-11 columns">
-					&nbsp
-				</div>
-				<div>
-					<input type='submit' class='small button' value='SUBMETER HORÁRIO' />
+					<input type='submit' class='small button' value='GENERAR HORÁRIO' />
 				</div>
 			</fieldset>
 		</form>

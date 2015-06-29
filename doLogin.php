@@ -1,5 +1,6 @@
 <?php
-	if (isset($_POST['EmailL'])){
+	if (isset($_POST['EmailL']))
+	{
 		//tentar efetuar login
 		$emailL = $_POST['EmailL'];
 		$LPass = md5($_POST['pass']); //md5 serve para encriptar a password
@@ -10,7 +11,7 @@
 		if (mysqli_num_rows($res) > 0)
 		{
 			$row = mysqli_fetch_object($res);
-			session_start();			
+			session_start();
 			$_SESSION['idUser'] = $row->id;
 			$_SESSION['nomeUser'] = $row->Nome;
 			$_SESSION['emailUser'] = $row->email;

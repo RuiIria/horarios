@@ -32,6 +32,19 @@
 		}
 	}
 	
+	function ValidarDadosHorario()
+	{
+		if(ValidarNAI() && ValidarNFQ() && ValidarNFran() && ValidarNFranIng() && ValidarNIng() && ValidarNMat() && ValidarNPort() && ValidarNPSI() && ValidarNRC() && LimiteHoras())
+		{
+				return true;
+		}
+		else
+		{
+			alert("Verifique se só inseriu numeros, e se o total é igual ou menor a 48");
+			return false;
+		}
+	}
+	
 	function ValidarRegisto()
 	{
 		alert('oi');

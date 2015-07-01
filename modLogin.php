@@ -1,30 +1,36 @@
 <script>
-		function ValidarEmailL(){
-			var reg = /[A-Za-z0-9._-]+@[a-z]+\.[a-z]{2,3}(\.[a-z]{2,3})?$/;
-			if(reg.test(document.getElementById("EmailL").value)== true){
-				document.getElementById('divEmailErradoL').style.display='none'; 
-				document.getElementById('divEmailCorretoL').style.display='block'; //Mostra email correto
-				return true;
-			}
-			else{
-				document.getElementById('divEmailErradoL').style.display='block';//mostra email errado
-				document.getElementById('divEmailCorretoL').style.display='none';
-				return false;
-			}
+	function ValidarEmailL()
+	{
+		var reg = /[A-Za-z0-9._-]+@[a-z]+\.[a-z]{2,3}(\.[a-z]{2,3})?$/;
+		if(reg.test(document.getElementById("EmailL").value)== true)
+		{
+			document.getElementById('divEmailErradoL').style.display='none'; 
+			document.getElementById('divEmailCorretoL').style.display='block'; //Mostra email correto
+			return true;
 		}
-		function ValidarPass(){
-			var reg = /((?=.*[0-9])(?=.*[A-Z]).{6,15})/;
-			if(reg.test(document.getElementById("pass").value)== true){
-				document.getElementById('divPassErrada').style.display='none';
-				document.getElementById('divPassCorreta').style.display='block';//mostra pass certa
-				return true;
-				}
-			else{
-				document.getElementById('divPassErrada').style.display='block';//mostra pass errada
-				document.getElementById('divPassCorreta').style.display='none';
-				return false;
-			}
+		else
+		{
+			document.getElementById('divEmailErradoL').style.display='block';//mostra email errado
+			document.getElementById('divEmailCorretoL').style.display='none';
+			return false;
 		}
+	}
+	function ValidarPass()
+	{
+		var reg = /((?=.*[0-9])(?=.*[A-Z]).{6,15})/;
+		if(reg.test(document.getElementById("pass").value)== true)
+		{
+			document.getElementById('divPassErrada').style.display='none';
+			document.getElementById('divPassCorreta').style.display='block';//mostra pass certa
+			return true;
+		}
+		else
+		{
+			document.getElementById('divPassErrada').style.display='block';//mostra pass errada
+			document.getElementById('divPassCorreta').style.display='none';
+			return false;
+		}
+	}
 </script>
 <div class='row' style='position:relative; top:15%; display:block;' id="Login">
 	<div class='large-5 large-centered panel columns'>

@@ -192,7 +192,7 @@
 					</span>
 				</div>
 				<div id="divYesNAI" style='display:none; position: absolute; left: 230px; top: 164px;'>
-					<img src="./img/correto.png" height="20px" width="20px">
+					<img src="./img/correto.png" height="200px" width="200px">
 				</div>
 			
 				<div class="large-3 columns">

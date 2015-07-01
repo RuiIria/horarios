@@ -36,7 +36,7 @@
 	{
 		if(ValidarNAI() && ValidarNFQ() && ValidarNFran() && ValidarNFranIng() && ValidarNIng() && ValidarNMat() && ValidarNPort() && ValidarNPSI() && ValidarNRC() && LimiteHoras())
 		{
-				return true;
+			return true;
 		}
 		else
 		{
@@ -47,7 +47,6 @@
 	
 	function ValidarRegisto()
 	{
-		alert('oi');
 		if(ValidarNomeR() && ValidarPassR() && ValidarEmail() && ValidarCPass())
 		{			
 			return true;
